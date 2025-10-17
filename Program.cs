@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using PonehRestaurantMenu.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,7 +8,8 @@ builder.Services.AddControllersWithViews();
 
 // دیتابیس InMemory
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseInMemoryDatabase("RestaurantDB"));
+    options.UseSqlite("Data Source=orders.db"));
+
 
 var app = builder.Build();
 
