@@ -1,0 +1,25 @@
+@model IEnumerable<PonehRestaurantMenu.Models.Order>
+
+<h2>لیست سفارش‌ها</h2>
+
+<form method="get" action="/Admin/Orders" style="margin-bottom:10px;">
+    <label>فیلتر بر اساس شماره تخت:</label>
+    <input type="number" name="tableNumber" min="1" />
+    <button type="submit">اعمال فیلتر</button>
+</form>
+
+@foreach (var order in Model)
+{
+    <div style="border:1px solid #ccc; margin:10px; padding:10px;">
+        <h3>سفارش #@order.Id — تخت @order.TableNumber</h3>
+        <p>تاریخ: @order.CreatedAt.ToString("yyyy/MM/dd HH:mm")</p>
+        <ul>
+        @foreach (var item in order.Items)
+        {
+            <li>@item.MenuItemName × @item.Quantity — @(item.Price * item.Quantity) تومان</li>
+        }
+        </ul>
+        <strong>جمع کل: @order.Items.Sum(i => i.Price * i.Quantity) تومان</strong>
+        <p><a href="/Customer/MyOrder?orderId=@order.Id" target="_blank">مشاهده سفارش</a></p>
+    </div>
+}

@@ -1,0 +1,14 @@
+@{
+    ViewData["Title"] = "انتخاب تخت";
+}
+
+<h2>انتخاب شماره تخت</h2>
+<form method="post" action="/Customer/StartOrder">
+    <label>شماره تخت:</label>
+    <select name="tableNumber">
+        @for (int i = 1; i <= 15; i++) {
+            <option value="@i">تخت شماره @i</option>
+        }
+    </select>
+    <button type="submit">شروع سفارش جدید</button>
+</form>

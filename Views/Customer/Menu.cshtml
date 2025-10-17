@@ -1,0 +1,29 @@
+@model IEnumerable<PonehRestaurantMenu.Models.MenuItem>
+@{
+    var orderId = (int)ViewBag.OrderId;
+    var table = (int)ViewBag.TableNumber;
+    ViewData["Title"] = "منو";
+}
+
+<h2>منوی رستوران</h2>
+<p>شماره تخت: @table</p>
+<p>شماره سفارش: @orderId</p>
+
+<ul>
+@foreach (var item in Model)
+{
+    <li>
+        <strong>@item.Category:</strong> @item.Name — @item.Price تومان
+        <form method="post" action="/Customer/AddToOrder" style="display:inline;">
+            <input type="hidden" name="orderId" value="@orderId" />
+            <input type="hidden" name="menuItemId" value="@item.Id" />
+            <button type="submit">➕ افزودن به سفارش</button>
+        </form>
+    </li>
+}
+</ul>
+
+<hr />
+<p>
+    <a href="/Customer/MyOrder?orderId=@orderId">📋 مشاهده سفارش من</a>
+</p>

@@ -1,0 +1,54 @@
+@model PonehRestaurantMenu.Models.Order
+
+<h2>سفارش شما</h2>
+<p>شماره تخت: @Model.TableNumber</p>
+<p>شماره سفارش: @Model.Id</p>
+
+@if (Model.Items.Any())
+{
+    <table border="1" cellpadding="5" cellspacing="0">
+        <tr>
+            <th>نام آیتم</th>
+            <th>تعداد</th>
+            <th>قیمت واحد</th>
+            <th>قیمت کل</th>
+            <th>عملیات</th>
+        </tr>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>@item.MenuItemName</td>
+                <td>@item.Quantity</td>
+                <td>@item.Price تومان</td>
+                <td>@(item.Price * item.Quantity) تومان</td>
+                <td>
+                    <form method="post" action="/Customer/IncreaseQuantity" style="display:inline;">
+                        <input type="hidden" name="orderId" value="@Model.Id" />
+                        <input type="hidden" name="itemId" value="@item.Id" />
+                        <button type="submit">➕</button>
+                    </form>
+
+                    <form method="post" action="/Customer/DecreaseQuantity" style="display:inline;">
+                        <input type="hidden" name="orderId" value="@Model.Id" />
+                        <input type="hidden" name="itemId" value="@item.Id" />
+                        <button type="submit">➖</button>
+                    </form>
+
+                    <form method="post" action="/Customer/RemoveItem" style="display:inline;">
+                        <input type="hidden" name="orderId" value="@Model.Id" />
+                        <input type="hidden" name="itemId" value="@item.Id" />
+                        <button type="submit">🗑 حذف</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </table>
+
+    <p><strong>جمع کل: @Model.Items.Sum(i => i.Price * i.Quantity) تومان</strong></p>
+
+    <p><a href="/Customer/Receipt?orderId=@Model.Id">🧾 مشاهده رسید</a></p>
+}
+else
+{
+    <p>هنوز آیتمی به سفارش اضافه نشده است.</p>
+}
