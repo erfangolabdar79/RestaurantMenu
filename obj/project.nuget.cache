@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "8K1o7/uVl1dHLZSQnW9geOFmGz3jqVW+3pWH4zveHtc2hyrVovakeLkIFis0gdeGcLpxYREPyhgoZP9rU7d+aQ==",
+  "dgSpecHash": "vFZBH8+hjwknFBFWgQ8txh6mj3inH2SFCg1K9UwK/vwlqOddLNSz864o72ckkIHd2v8Ofe6lTcP+av8SaB/mHw==",
   "success": true,
   "projectFilePath": "D:\\PonehRestaurantMenu\\PonehRestaurantMenu.csproj",
   "expectedPackageFiles": [
@@ -35,6 +35,8 @@
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.10\\microsoft.extensions.primitives.9.0.10.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\mono.texttemplating\\3.0.0\\mono.texttemplating.3.0.0.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\npgsql\\9.0.3\\npgsql.9.0.3.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\9.0.4\\npgsql.entityframeworkcore.postgresql.9.0.4.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\qrcoder\\1.7.0\\qrcoder.1.7.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.10\\sqlitepclraw.bundle_e_sqlite3.2.1.10.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\sqlitepclraw.core\\2.1.10\\sqlitepclraw.core.2.1.10.nupkg.sha512",
